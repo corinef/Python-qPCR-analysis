@@ -10,21 +10,21 @@ Quantitative real-time PCR is an important technique in analyzing real-time gene
 # Necessary Packages:
 
 ## Libraries
-
+```
 import pandas as pd
 from pathlib import Path
 import numpy as np
 import os
 from math import isnan
-
+```
 ## Plot libraries
-
+```
 import matplotlib as mpl
 import matplotlib.pyplot as pp
 import seaborn as sb
-
+```
 ## Set custom design for plots
-
+```
 %matplotlib inline
 IPython_default = pp.rcParams.copy()
 from matplotlib import cycler
@@ -47,15 +47,16 @@ pp.rc('xtick', direction='out', color='black')
 pp.rc('ytick', direction='out', color='black')
 pp.rc('patch', edgecolor='#E6E6E6')
 pp.rc('lines', linewidth=2)
-
+```
 ## Statistics libraries
+```
 from scipy import stats
 import researchpy as rp
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
 from statsmodels.stats.multicomp import pairwise_tukeyhsd
 import scikit_posthocs as sp
-
+```
 
 # Content 
 Each run is an individual CSV file (1-32) representing one gene tested per biological replicate. Runs were grouped together by biological replicate (BR). 
