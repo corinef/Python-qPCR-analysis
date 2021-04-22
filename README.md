@@ -59,17 +59,63 @@ import scikit_posthocs as sp
 ```
 
 # Content 
-Each run is an individual CSV file (1-32) representing one gene tested per biological replicate. Runs were grouped together by biological replicate (BR). 
+Each run is an individual [Plate file](../thesis-Python-qPCR/Plate files) (1-32) representing one gene tested per biological replicate that *need to be downloaded* for use of this script. 
+Runs were grouped together by biological replicate (BR). 
 
 1. Each BR dataframe includes: 
     * clean up:
         * unneccessary columns dropped
         * NaN's renamed to NTC or IRC
         * Cq's of 0 dropped
-        * High samples removed (Cq values (>30) for the majority of genes tested)
+        * High samples identified and removed (Cq values (>30))
     * pivot table
         * comparative Cq method 
+            * ΔCq (Target Gene - Reference Gene)
+            * 2<sup>-ΔCq
 
+2. Inter-Run-Calibrator (IRC) dataframe includes:
+    * Merge of all IRC data
+    * Grouped by plate
+    * Fit Ordinary Least Squares (OLS) regression model using an estimation method
+        * estimate relationship between plate and Cq values  
+
+3. Merge of all data
+
+4. Verify reference gene expression
+    * Calculate average & st. dev. Cq values across replicates
+    * Visualize data
+      * Plot Cq values across samples
+      * Plot average Cq values by treatment
+    * Statistical analysis
+      * Compare reference gene expression for each clone to identify if GAPDH or MSI1 change expression under treatment. 
+      * One-Way ANOVA test
+         1: Fit OLS model
+            * estimate relationship between treatment and Cq values
+         2: Pass fitted model into ANOVA method to produce ANOVA table
+            * Check that data does not violate assumption of normally distributed residuals, or homogenity of variance.
+
+5. Target Gene Figures
+    * Calculate average & st. dev. 2<sup>-ΔCq values across replicates
+    * Group by clone and treatment group
+    * Visualize data
+       * Plot each gene individually by treatment group
+      
+6. Target Gene Statistical Analysis
+    * Independent Students T-tests for hypotheses
+        * Independent variable: Treatment (4 levels) Zeitgeber (13 levels)
+        * Dependent variable: 2<sup>-ΔCq
+    * Pull statistically significant data (p<0.05) into individual dataframes
+
+
+## Background information on qPCR data
+Cq values represent the number of PCR cycles needed to observe a certain threshold of fluorescence for each sample. DNA sequences are doubled each cycle, so Cq values are on a log2 scale (1 cycle = 2x original sequence abundance, 2 cycles = 4x original sequence abundance), therefore higher Cq values corresponds to lower DNA expression levels. 
+
+To normalize the Cq data, target gene Cq values can be compared to an internal control/reference gene Cq value in each sample. 
+This gives a change in Cq value (ΔCq) for each gene, then to convert ΔCq values from a log2 to a linear scale, we take 2 to the power of -ΔCq.
+
+the 2<sup>-ΔCq method is appropriate where: 
+    deltaCq =  (CQ gene of interest - CQ internal control).
+    
 Omitted samples:
     * From cDNA synthesis: 
         * N2:  1A_2 , 4B_3, 11C_2 , 10A_3
@@ -77,29 +123,3 @@ Omitted samples:
    *  From qPCR analysis due to high samples: 
         * N2: 5A_1
         * I1: 8A_1, 11B_1, 13C_1, 13D_1, 1A_2, 1B_2, 7B_2, 7B_3, 13B_3
-
-
-Cq values represent the number of PCR cycles needed to observe a certain threshold of fluorescence for each sample. DNA sequences are doubled each cycle, so Cq values are on a log2 scale (1 cycle = 2x original sequence abundance, 2 cycles = 4x original sequence abundance), therefore higher Cq values corresponds to lower DNA expression levels. 
-
-To normalize the Cq data, target gene Cq values can be compared to an internal control/reference gene Cq value in each sample. 
-This gives a change in Cq value (ΔCq) for each gene, then to convert ΔCq values from a log2 to a linear scale, we take 2 to the power of -ΔCq.
-
-the 2^-ΔCq method is appropriate where: 
-    deltaCq =  (CQ gene of interest - CQ internal control).
-
-
-2. Inter-Run-Calibrator (IRC) dataframe includes:
-    * Grouped by plate
-    * Fit Ordinary Least Squares (OLS) regression model using an estimation method
-        * estimate relationship between plate and Cq values  
-
-4. Verify reference gene expression
-    * Compare reference gene expression for each clone to identify if GAPDH or MSI1 change expression under treatment. 
-    * One-Way ANOVA test
-        1: Fit OLS model
-            * estimate relationship between treatment and Cq values
-        2: Pass fitted model into ANOVA method to produce ANOVA table
-            * Check that data does not violate assumption of normally distributed residuals, or homogenity of variance.
-            
-5. Analyze Target Genes
-    * 
