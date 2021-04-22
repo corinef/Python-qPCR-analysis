@@ -89,9 +89,9 @@ Runs were grouped together by biological replicate (BR).
     * Statistical analysis
       * Compare reference gene expression for each clone to identify if GAPDH or MSI1 change expression under treatment. 
       * One-Way ANOVA test
-         1: Fit OLS model
+        * Fit OLS model
             * estimate relationship between treatment and Cq values
-         2: Pass fitted model into ANOVA method to produce ANOVA table
+        * Pass fitted model into ANOVA method to produce ANOVA table
             * Check that data does not violate assumption of normally distributed residuals, or homogenity of variance.
 
 5. Target Gene Figures
