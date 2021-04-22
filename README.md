@@ -7,9 +7,9 @@ Full analysis of *F. vesca* circadian clock gene expression in differential phot
 Quantitative real-time PCR is an important technique in analyzing real-time gene expression analysis. Gene expression analysis software is expensive, and calculation of relative expression of target gene using a reference gene is relatively straight-forward. This document includes the methods used in this master thesis to relatively quantify gene expression of qPCR. 
 
 
-# Necessary Packages:
+## Necessary Packages:
 
-## Libraries
+### Libraries
 ```
 import pandas as pd
 from pathlib import Path
@@ -17,13 +17,13 @@ import numpy as np
 import os
 from math import isnan
 ```
-## Plot libraries
+### Plot libraries
 ```
 import matplotlib as mpl
 import matplotlib.pyplot as pp
 import seaborn as sb
 ```
-## Set custom design for plots
+### Set custom design for plots
 ```
 %matplotlib inline
 IPython_default = pp.rcParams.copy()
@@ -48,7 +48,7 @@ pp.rc('ytick', direction='out', color='black')
 pp.rc('patch', edgecolor='#E6E6E6')
 pp.rc('lines', linewidth=2)
 ```
-## Statistics libraries
+### Statistics libraries
 ```
 from scipy import stats
 import researchpy as rp
@@ -62,7 +62,7 @@ import scikit_posthocs as sp
 Each run is an individual CSV file (1-32) representing one gene tested per biological replicate. Runs were grouped together by biological replicate (BR). 
 
 1. Each BR dataframe includes: 
-    * clean up: 
+    * clean up:
         * unneccessary columns dropped
         * NaN's renamed to NTC or IRC
         * Cq's of 0 dropped
@@ -71,12 +71,12 @@ Each run is an individual CSV file (1-32) representing one gene tested per biolo
         * comparative Cq method 
 
 Omitted samples:
-    From cDNA synthesis: 
-        N2:  1A_2 , 4B_3, 11C_2 , 10A_3
-        I1:  2B_2 , 10B_2    
-    From qPCR analysis due to high samples: 
-        N2: 5A_1
-        I1: 8A_1, 11B_1, 13C_1, 13D_1, 1A_2, 1B_2, 7B_2, 7B_3, 13B_3
+    * From cDNA synthesis: 
+        * N2:  1A_2 , 4B_3, 11C_2 , 10A_3
+        * I1:  2B_2 , 10B_2    
+   *  From qPCR analysis due to high samples: 
+        * N2: 5A_1
+        * I1: 8A_1, 11B_1, 13C_1, 13D_1, 1A_2, 1B_2, 7B_2, 7B_3, 13B_3
 
 
 Cq values represent the number of PCR cycles needed to observe a certain threshold of fluorescence for each sample. DNA sequences are doubled each cycle, so Cq values are on a log2 scale (1 cycle = 2x original sequence abundance, 2 cycles = 4x original sequence abundance), therefore higher Cq values corresponds to lower DNA expression levels. 
