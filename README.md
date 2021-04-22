@@ -59,7 +59,7 @@ import scikit_posthocs as sp
 ```
 
 # Content 
-Each run is an individual [Plate file](../thesis-Python-qPCR/Plate files) (1-32) representing one gene tested per biological replicate that *need to be downloaded* for use of this script. 
+Each run is an individual [Plate file](https://github.com/corinef/thesis-Python-qPCR/tree/main/Plate%20files) (1-32) representing one gene tested per biological replicate that *need to be downloaded* for use of this script. 
 Runs were grouped together by biological replicate (BR). 
 
 1. Each BR dataframe includes: 
