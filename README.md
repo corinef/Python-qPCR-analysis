@@ -16,6 +16,9 @@ from pathlib import Path
 import numpy as np
 import os
 from math import isnan
+import warnings
+from pandas.core.common import SettingWithCopyWarning
+warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 ```
 ### Plot libraries
 ```
