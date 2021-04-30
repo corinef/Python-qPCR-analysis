@@ -1,0 +1,8 @@
+treatment,zeitgeber,Target,Ttest_ind,p-value
+Norway,0,LHY,-6.686,0.022
+Italy,0,LUX,-4.247,0.024
+Italy,20,PRDX,-4.543,0.01
+Italy,32,LHY,-3.095,0.036
+Italy,36,PRR9,-5.126,0.014
+Italy,40,RVE8,-3.763,0.033
+Italy,44,PRDX,-2.87,0.045
