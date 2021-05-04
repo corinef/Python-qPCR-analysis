@@ -1,10 +1,19 @@
 # thesis-Python-qPCR
 **Corine Faehn**
 
-Full analysis of *F. vesca* circadian clock gene expression in differential photoperiod treatments via RT-qPCR
+Full analysis of *F. vesca* circadian clock gene expression in differential photoperiod treatments via RT-qPCR analysis 
 
 # Overview
 Quantitative real-time PCR is an important technique in analyzing real-time gene expression analysis. Gene expression analysis software is expensive, and calculation of relative expression of target gene using a reference gene is relatively straight-forward. This document includes the methods used in this master thesis to relatively quantify gene expression of qPCR. 
+
+## Background information on qPCR data
+Cq values represent the number of PCR cycles needed to observe a certain threshold of fluorescence for each sample. DNA sequences are doubled each cycle, so Cq values are on a log2 scale (1 cycle = 2x original sequence abundance, 2 cycles = 4x original sequence abundance), therefore higher Cq values corresponds to lower DNA expression levels. 
+
+To normalize the Cq data, target gene Cq values can be compared to an internal control/reference gene Cq value in each sample. 
+This gives a change in Cq value (ΔCq) for each gene, then to convert ΔCq values from a log2 to a linear scale, we take 2 to the power of -ΔCq.
+
+the 2<sup>-ΔCq method is appropriate where: 
+    deltaCq =  (CQ gene of interest - CQ internal control).
 
 
 ## Necessary Packages:
@@ -110,14 +119,7 @@ Runs were grouped together by biological replicate (BR).
     * Pull statistically significant data (p<0.05) into individual dataframes
 
 
-## Background information on qPCR data
-Cq values represent the number of PCR cycles needed to observe a certain threshold of fluorescence for each sample. DNA sequences are doubled each cycle, so Cq values are on a log2 scale (1 cycle = 2x original sequence abundance, 2 cycles = 4x original sequence abundance), therefore higher Cq values corresponds to lower DNA expression levels. 
 
-To normalize the Cq data, target gene Cq values can be compared to an internal control/reference gene Cq value in each sample. 
-This gives a change in Cq value (ΔCq) for each gene, then to convert ΔCq values from a log2 to a linear scale, we take 2 to the power of -ΔCq.
-
-the 2<sup>-ΔCq method is appropriate where: 
-    deltaCq =  (CQ gene of interest - CQ internal control).
     
 Omitted samples:
     * From cDNA synthesis: 
