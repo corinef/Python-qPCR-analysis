@@ -12,7 +12,7 @@ Cq values represent the number of PCR cycles needed to observe a certain thresho
 To normalize the Cq data, target gene Cq values can be compared to an internal control/reference gene Cq value in each sample. 
 This gives a change in Cq value (ΔCq) for each gene, then to convert ΔCq values from a log2 to a linear scale, we take 2 to the power of -ΔCq.
 
-the 2<sup>-ΔCq method is appropriate where: 
+the 2<sup>-ΔCq</sup> method is appropriate where: 
     deltaCq =  (CQ gene of interest - CQ internal control).
 
 
