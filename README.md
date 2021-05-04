@@ -124,9 +124,11 @@ All data merged
 
     
 Omitted samples from this analysis:
-    * From cDNA synthesis: 
+
+   * From cDNA synthesis: 
         * N2:  1A_2 , 4B_3, 11C_2 , 10A_3
         * I1:  2B_2 , 10B_2    
+      
    *  From qPCR analysis due to high samples: 
         * N2: 5A_1
         * I1: 8A_1, 11B_1, 13C_1, 13D_1, 1A_2, 1B_2, 7B_2, 7B_3, 13B_3
