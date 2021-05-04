@@ -4,7 +4,7 @@
 Full analysis of *F. vesca* circadian clock gene expression in differential photoperiod treatments via RT-qPCR analysis 
 
 # Overview
-Quantitative real-time PCR is an important technique in analyzing real-time gene expression analysis. Gene expression analysis software is expensive, and calculation of relative expression of target gene using a reference gene is relatively straight-forward. This document includes the methods used in this master thesis to relatively quantify gene expression of qPCR. 
+Quantitative real-time PCR is an important technique in analyzing real-time gene expression analysis. Gene expression analysis software is expensive, and calculation of relative expression of target gene using a reference gene is relatively straight-forward. This document includes the analysis used in this master thesis to relatively quantify gene expression of qPCR via a Python script. 
 
 ## Background information on qPCR data
 Cq values represent the number of PCR cycles needed to observe a certain threshold of fluorescence for each sample. DNA sequences are doubled each cycle, so Cq values are on a log2 scale (1 cycle = 2x original sequence abundance, 2 cycles = 4x original sequence abundance), therefore higher Cq values corresponds to lower DNA expression levels. 
@@ -35,7 +35,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as pp
 import seaborn as sb
 ```
-### Set custom design for plots
+### Custom design for plots
 ```
 %matplotlib inline
 IPython_default = pp.rcParams.copy()
@@ -71,8 +71,10 @@ import scikit_posthocs as sp
 ```
 
 # Content 
-Each run is an individual [Plate file](https://github.com/corinef/thesis-Python-qPCR/tree/main/Plate%20files) (1-32) representing one gene tested per biological replicate that *need to be downloaded* for use of this script. 
-Runs were grouped together by biological replicate (BR). 
+Each run is an individual [Plate file](https://github.com/corinef/thesis-Python-qPCR/tree/main/Plate%20files) (1-32) representing one gene tested per biological replicate that *need to be downloaded* for use of this script. The script is also recommended to be downloaded for full use.
+
+
+Runs grouped together by biological replicate (BR). 
 
 1. Each BR dataframe includes: 
     * clean up:
@@ -91,7 +93,7 @@ Runs were grouped together by biological replicate (BR).
     * Fit Ordinary Least Squares (OLS) regression model using an estimation method
         * estimate relationship between plate and Cq values  
 
-3. Merge of all data
+All data merged 
 
 4. Verify reference gene expression
     * Calculate average & st. dev. Cq values across replicates
@@ -121,7 +123,7 @@ Runs were grouped together by biological replicate (BR).
 
 
     
-Omitted samples:
+Omitted samples from this analysis:
     * From cDNA synthesis: 
         * N2:  1A_2 , 4B_3, 11C_2 , 10A_3
         * I1:  2B_2 , 10B_2    
