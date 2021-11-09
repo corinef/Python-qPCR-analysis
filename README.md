@@ -23,7 +23,7 @@ scikit_posthocs
 researchpy
 
 # Content 
-Each run is an individual [Plate file](https://github.com/corinef/thesis-Python-qPCR/tree/main/Plate%20files) (1-62) representing one gene tested per biological replicate. *Download* the [zipped plates file](Plate files/plate_files.zip) and script for full use. 
+Each run is an individual [Plate file](https://github.com/corinef/thesis-Python-qPCR/tree/main/Plate%20files) (1-62) representing one gene tested per biological replicate. *Download* the [zipped plates file](https://github.com/corinef/Python-qPCR-analysis/blob/main/Plate%20files/plate_files.zip) and script for full use. 
 
 
 Runs grouped together by biological replicate (BR). 
