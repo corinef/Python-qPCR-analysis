@@ -65,8 +65,9 @@ Runs grouped together by biological replicate (BR).
 7. Analyze target genes
     * Plot mean Cq values
     * Calculate 2<sup>-ΔCq
-        1. ΔCq = Cq (target gene) - Cq (eometric mean of reference genes)
-        2. Take 2<sup>-ΔCq
+    
+        * ΔCq = Cq (target gene) - Cq (eometric mean of reference genes)
+        * Take 2<sup>-ΔCq
     * Plot target genes
     * Independent Students T-tests for hypotheses
         * Independent variable: Treatment (4 levels) Zeitgeber (13 levels)
@@ -75,9 +76,12 @@ Runs grouped together by biological replicate (BR).
 
 
     
+<!-- This content will not appear in the rendered Markdown   
+
 Unused for analysis:
     Inter-Run-Calibrator (IRC) dataframe includes:
     * Merge of all IRC data
     * Grouped by plate
     * Fit Ordinary Least Squares (OLS) regression model using an estimation method
         * estimate relationship between plate and Cq values  
+-->
