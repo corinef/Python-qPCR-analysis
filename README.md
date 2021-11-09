@@ -1,7 +1,7 @@
-# Python qPCR analysis for Masters' Thesis
+# Python qPCR analysis for *Fragaria vesca* circadian clock genes and phytohormone analysis
 **Corine Faehn**
 
-Full analysis of *F. vesca* circadian clock gene expression in differential photoperiod treatments via RT-qPCR analysis 
+Full analysis of *F. vesca* circadian clock gene expression and phytohormone levels in differential photoperiod treatments via RT-qPCR analysis and mass spectrometry
 
 # Overview
 Quantitative real-time PCR is an important technique in analyzing real-time gene expression analysis. Gene expression analysis software is expensive, and calculation of relative expression of target gene using a reference gene is relatively straight-forward. This document includes the analysis used in this master thesis to relatively quantify gene expression of qPCR via a Python script. 
