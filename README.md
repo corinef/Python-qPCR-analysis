@@ -18,9 +18,11 @@ the 2<sup>-ΔCq</sup> method is appropriate where:
 
 ## Necessary Packages to install:
 
+```
 jupyterthemes
 scikit_posthocs
 researchpy
+```
 
 # Content 
 Each run is an individual [Plate file](https://github.com/corinef/thesis-Python-qPCR/tree/main/Plate%20files) (1-62) representing one gene tested per biological replicate. *Download* the [zipped plates file](https://github.com/corinef/Python-qPCR-analysis/blob/main/Plate%20files/plate_files.zip) and [script](https://github.com/corinef/Python-qPCR-analysis/blob/main/Updated_qPCRdata_analysis.ipynb) for full use. 
