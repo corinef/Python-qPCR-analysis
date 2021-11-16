@@ -73,7 +73,7 @@ Runs grouped together by biological replicate (BR).
     * Plot target genes
     * Independent Students T-tests for hypotheses
         * Independent variable: Treatment (4 levels) Zeitgeber (13 levels)
-        * Dependent variable: 2<sup>-ΔCqs
+        * Dependent variable: 2<sup>-ΔCq
 
 
 
