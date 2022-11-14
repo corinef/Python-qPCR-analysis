@@ -19,7 +19,6 @@ the 2<sup>-ΔCq</sup> method is appropriate where:
 ## Necessary Packages to install:
 
 ```
-jupyterthemes
 scikit_posthocs
 researchpy
 ```
